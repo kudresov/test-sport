@@ -1,8 +1,8 @@
 // 2. This code loads the IFrame Player API code asynchronously.
-jQuery.getJSON('data.json', function(x){
+jQuery.getJSON('data2.json', function(x){
   data = x;
 });
-var videoStart = moment('2016-02-26T11:09:50.000Z');
+var videoStart = moment('2016-02-26T10:09:55.000Z');
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
@@ -16,11 +16,12 @@ setInterval(function(){
 
   var findTime = function(x){
     // if less one second away from data point
-    return Math.abs(moment.duration(moment(x.time).diff(time)).asSeconds()) < 1;
+    return Math.abs(moment.duration(moment(x.time).diff(time)).asSeconds()) < 3;
   };
   var point = data.find(findTime);
   if (point) {
-    $("h1").text(point.hr);
+    $("#hr").text(point.hr);
+    $("#speed").text(Math.round(point.speed * 3.6) + ' km/h');
   }
 }, 1000);
 

@@ -1,6 +1,13 @@
-h1 {
+#hr {
     position: absolute;
     top: 30px;
     left: 580px;
+    color: white;
+}
+
+#speed {
+    position: absolute;
+    top: 30px;
+    left: 30px;
     color: white;
 }
